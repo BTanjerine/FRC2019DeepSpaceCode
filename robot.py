@@ -24,6 +24,9 @@ from OI import oi
 
 
 class Robot(CommandBasedRobot):
+
+    TestVar = 0
+
     def robotInit(self):
         super().__init__()
         # init robot subs and commands
