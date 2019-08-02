@@ -27,7 +27,8 @@ class Drive(Subsystem):
             motor[name] = robot.Creator.createMotor(self.map.motorMap.motors[name])
 
         for name in self.map.PneumaticMap.pistons:
-            pistons[name] = robot.Creator.createPistons(self.map.PneumaticMap.pistons[name])
+            if name == 'Shifter':
+                pistons[name] = robot.Creator.createPistons(self.map.PneumaticMap.pistons[name])
 
         self.REnc = Encoder(0, 1, True, Encoder.EncodingType.k4X)
         self.LEnc = Encoder(2, 3, False, Encoder.EncodingType.k4X)
