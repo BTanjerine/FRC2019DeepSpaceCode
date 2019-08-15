@@ -33,7 +33,7 @@ class Drive(Subsystem):
         self.REnc = Encoder(0, 1, True, Encoder.EncodingType.k4X)
         self.LEnc = Encoder(2, 3, False, Encoder.EncodingType.k4X)
 
-        self.Gyro = ADXRS450_Gyro
+        self.Gyro = ADXRS450_Gyro()
 
         # make motors, Sensors, and pistons local to subsystem
         self.Dmotor = motor

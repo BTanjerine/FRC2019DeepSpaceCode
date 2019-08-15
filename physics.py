@@ -10,6 +10,7 @@ class PhysicsEngine(object):
         self.physController = physics_controller
         self.bumperW = 3.25 * units.inch
 
+        # 16.36
         self.Drive = tankmodel.TankModel.theory(
             motor_cfgs.MOTOR_CFG_MINI_CIM,
             115*units.lbs,
@@ -37,7 +38,7 @@ class PhysicsEngine(object):
         self.rf_enc = self.Drive.r_position * ENC_TICK_PER_FT
 
         hal_data['encoder'][0]['count'] = int(self.lf_enc)
-        hal_data['encoder'][1]['count'] = int(self.rf_enc)
+        hal_data['encoder'][2]['count'] = int(self.rf_enc)
 
         x, y, angle = self.Drive.get_distance(lf_motor, rf_motor, tm_dif)
         self.physController.distance_drive(x, y, angle)
