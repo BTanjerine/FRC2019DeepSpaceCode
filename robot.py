@@ -1,7 +1,7 @@
 import wpilib
-from wpilib.command import Scheduler
-from wpilib.sendablechooser import SendableChooser
+from wpilib import SmartDashboard
 from commandbased import CommandBasedRobot
+from wpilib.command import Scheduler
 
 from Subsystems.drive import Drive
 from Subsystems.arm import Arm
@@ -51,19 +51,7 @@ class Robot(CommandBasedRobot):
         self.autoLvl2Lft = Lvl2lftAuto.Autolvl2Lft(self)
 
         "************************autonomous chooser****************************"
-        self.chooser = SendableChooser()
-
-        self.chooser.setDefaultOption("Drive Mode", self.teleOp)
-        self.chooser.addOption("Auto Left", self.autoLft)
-        self.chooser.addOption("Auto Mid Rgt", self.autoMidRgt)
-        self.chooser.addOption("Auto Mid Lft", self.autoMidLft)
-        self.chooser.addOption("Auto Right", self.autoRgt)
-
-        self.chooser.addOption("Auto Lvl2 Rgt", self.autoLvl2Rgt)
-        self.chooser.addOption("Auto Lvl2 Lft", self.autoLvl2Lft)
-        wpilib.SmartDashboard.putData('Options', self.chooser)
-
-        self.selectedAuto = self.chooser.getSelected()
+        self.selectedAuto = self.autoLft
 
     def log(self):
         self.drive.Log()    # log drive data

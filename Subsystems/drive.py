@@ -1,8 +1,8 @@
 import wpilib
-from wpilib.doublesolenoid import DoubleSolenoid
-from wpilib.command.subsystem import Subsystem
-from wpilib.encoder import Encoder
-from wpilib.adxrs450_gyro import ADXRS450_Gyro
+from wpilib import DoubleSolenoid
+from wpilib.command import Subsystem
+from wpilib import Encoder
+from wpilib import ADXRS450_Gyro
 from Subsystems.pid import PID
 import hal
 

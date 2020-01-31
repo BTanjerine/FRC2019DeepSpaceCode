@@ -1,6 +1,6 @@
 from wpilib.command import Command
 import enum
-import wpilib.doublesolenoid
+import wpilib
 
 
 class setHatchPuncherPos(Command):

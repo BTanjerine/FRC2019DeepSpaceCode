@@ -1,7 +1,7 @@
 from pyfrc.physics import motor_cfgs, tankmodel
 from pyfrc.physics.units import units
 
-ENC_TICK_PER_FT = 720
+ENC_TICK_PER_FT = 229.1832
 
 
 class PhysicsEngine(object):

@@ -1,5 +1,5 @@
-from wpilib.command.subsystem import Subsystem
-from networktables.networktables import NetworkTables
+from wpilib.command import Subsystem
+from networktables import NetworkTables
 
 
 class Limelight(Subsystem):

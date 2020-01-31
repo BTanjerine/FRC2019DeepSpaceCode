@@ -1,10 +1,10 @@
-from ctre.wpi_talonsrx import WPI_TalonSRX
-from ctre.wpi_victorspx import WPI_VictorSPX
-from wpilib.victorsp import VictorSP
-from wpilib.joystick import Joystick
-from wpilib.xboxcontroller import XboxController
-from wpilib.doublesolenoid import DoubleSolenoid
-from wpilib.solenoid import Solenoid
+from ctre import WPI_TalonSRX
+from ctre import WPI_VictorSPX
+from wpilib import VictorSP
+from wpilib import Joystick
+from wpilib import XboxController
+from wpilib import DoubleSolenoid
+from wpilib import Solenoid
 
 
 class Creator:

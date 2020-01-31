@@ -1,5 +1,5 @@
 from wpilib.command import Command
-import hal
+import wpilib
 
 
 class SetDrivePos(Command):
@@ -11,7 +11,7 @@ class SetDrivePos(Command):
         self.speed = speed
 
         # drive linear distance
-        if hal.isSimulation():
+        if wpilib.RobotBase.isSimulation():
             # change distance bc its different in simulation
             self.distance = distance/2
         else:

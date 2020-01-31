@@ -1,9 +1,9 @@
-from ctre.wpi_talonsrx import WPI_TalonSRX
-from ctre.wpi_victorspx import WPI_VictorSPX
-from wpilib.command.subsystem import Subsystem
+from ctre import WPI_TalonSRX
+from ctre import WPI_VictorSPX
+from wpilib.command import Subsystem
 from Subsystems.pid import PID
-from wpilib.encoder import Encoder
-from wpilib.digitalinput import DigitalInput
+from wpilib import Encoder
+from wpilib import DigitalInput
 import wpilib
 
 

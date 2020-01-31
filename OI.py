@@ -1,4 +1,4 @@
-from wpilib.buttons.joystickbutton import JoystickButton
+from wpilib.buttons import JoystickButton
 from Command import (
     setarmpos,
     sethatchpuncherpos,

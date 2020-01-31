@@ -1,4 +1,4 @@
-from wpilib.command.commandgroup import CommandGroup
+from wpilib.command import CommandGroup
 from Command import (
     setarmpos,
     sethatchpuncherpos,
@@ -6,7 +6,7 @@ from Command import (
     align,
     setdrivepos
 )
-from wpilib.command.waitcommand import WaitCommand
+from wpilib.command import WaitCommand
 
 
 class AutoLft(CommandGroup):

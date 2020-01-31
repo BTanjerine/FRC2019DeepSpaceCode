@@ -30,8 +30,8 @@ class TeleOp(Command):
         lft = y + x
 
         self.robot.drive.set(rgt * 0.95, lft * 0.95)  # set power to drive
-
-        # raise or lower arm when press trigger
+        """
+         # raise or lower arm when press trigger
         if armUp > 0:
             self.robot.arm.set(armUp*0.7)
         elif armDown > 0 and self.robot.arm.getZeroPos() == 1:
@@ -41,6 +41,7 @@ class TeleOp(Command):
 
         if not self.robot.arm.getZeroPos():
             self.robot.arm.resetHeight()
+        """
 
         # intake or outtake ball when press bumpers
         if self.controller.getBumper(self.controller.Hand.kRight):
