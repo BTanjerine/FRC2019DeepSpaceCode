@@ -5,11 +5,11 @@ from Subsystems.pid import PID
 from wpilib import Encoder
 from wpilib import DigitalInput
 import wpilib
-
+import ctre
 
 class Arm(Subsystem):
     def __init__(self, robot):
-        super().__init__()
+        super().__init__("Arm")
         self.robot = robot
 
         self.peakCurrentLimit = 30
@@ -60,8 +60,8 @@ class Arm(Subsystem):
     set functions
     """
     def set(self, power):
-        self.motors['RTArm'].set(WPI_TalonSRX.ControlMode.PercentOutput, power)
-        self.motors['LTArm'].set(WPI_TalonSRX.ControlMode.PercentOutput, power)
+        self.motors['RTArm'].set(ctre.ControlMode.PercentOutput, power)
+        self.motors['LTArm'].set(ctre.ControlMode.PercentOutput, power)
 
     def stop(self):
         self.motors['RTArm'].stopMotor()

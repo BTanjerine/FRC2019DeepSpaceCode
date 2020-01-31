@@ -1,10 +1,11 @@
-from ctre import WPI_TalonSRX
-from ctre import WPI_VictorSPX
+from ctre import TalonSRX
+from ctre import VictorSPX
 from wpilib import VictorSP
 from wpilib import Joystick
 from wpilib import XboxController
 from wpilib import DoubleSolenoid
 from wpilib import Solenoid
+import ctre
 
 
 class Creator:
@@ -13,18 +14,18 @@ class Creator:
         if MotorSpec['ContType'] == 'CAN':
             if MotorSpec['Type'] == 'TalonSRX':
                 if MotorSpec['jobType'] == 'master':
-                    motr = WPI_TalonSRX(MotorSpec['port'])
+                    motr = TalonSRX(MotorSpec['port'])
                 elif MotorSpec['jobType'] == 'slave':
-                    motr = WPI_TalonSRX(MotorSpec['port'])
+                    motr = TalonSRX(MotorSpec['port'])
                     motr.setInverted(MotorSpec['inverted'])
-                    motr.set(WPI_TalonSRX.ControlMode.Follower, MotorSpec['masterPort'])
+                    motr.set(ctre.ControlMode.Follower, MotorSpec['masterPort'])
             if MotorSpec['Type'] == 'VictorSPX':
                 if MotorSpec['jobType'] == 'master':
-                    motr = WPI_VictorSPX(MotorSpec['port'])
+                    motr = VictorSPX(MotorSpec['port'])
                 elif MotorSpec['jobType'] == 'slave':
-                    motr = WPI_VictorSPX(MotorSpec['port'])
+                    motr = VictorSPX(MotorSpec['port'])
                     motr.setInverted(MotorSpec['inverted'])
-                    motr.set(WPI_VictorSPX.ControlMode.Follower, MotorSpec['masterPort'])
+                    motr.set(ctre.ControlMode.Follower, MotorSpec['masterPort'])
         else:
             print("IDK your motor")
 

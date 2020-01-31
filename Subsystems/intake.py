@@ -3,7 +3,7 @@ from wpilib.command import Subsystem
 
 class Intake(Subsystem):
     def __init__(self, robot):
-        super().__init__()
+        super().__init__("Intake")
 
         self.robot = robot
         # robot map short cut

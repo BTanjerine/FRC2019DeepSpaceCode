@@ -6,7 +6,7 @@ from Command import (
     align,
     setdrivepos
 )
-from wpilib.command.waitcommand import WaitCommand
+from wpilib.command import WaitCommand
 
 
 class AutoMidRgt(CommandGroup):

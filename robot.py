@@ -22,7 +22,6 @@ from robotMap import RobotMap
 from Helper import Creator
 from OI import oi
 
-
 class Robot(CommandBasedRobot):
 
     TestVar = 0
@@ -53,6 +52,11 @@ class Robot(CommandBasedRobot):
         "************************autonomous chooser****************************"
         self.selectedAuto = self.autoLft
 
+        self.s = Scheduler
+
+    def robotPeriodic(self):
+        self.s.getInstance().run()  # run auto
+
     def log(self):
         self.drive.Log()    # log drive data
         self.arm.log()      # log arm data
@@ -70,7 +74,7 @@ class Robot(CommandBasedRobot):
             self.selectedAuto = self.teleOp
             self.selectedAuto.start()
 
-        Scheduler.getInstance().run()   # run auto
+        # self.s.getInstance().run()   # run auto
         self.log()  # log important data on to smartdashboard
 
     def teleopInit(self):
@@ -79,7 +83,6 @@ class Robot(CommandBasedRobot):
         self.teleOp.start()     # start teleop
 
     def teleopPeriodic(self):
-        Scheduler.getInstance().run()  # run auto
         self.log()  # log important data on to smartdashboard
 
     def disabledInit(self):

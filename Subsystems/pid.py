@@ -3,7 +3,7 @@ from wpilib.command import Subsystem
 
 class PID(Subsystem):
     def __init__(self, kp, ki, kd):
-        super().__init__()
+        super().__init__("PID")
         """
         kp -> constant value for Proportional input
         ki -> constant value for Iterative input

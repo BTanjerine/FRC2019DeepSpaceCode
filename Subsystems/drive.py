@@ -4,12 +4,13 @@ from wpilib.command import Subsystem
 from wpilib import Encoder
 from wpilib import ADXRS450_Gyro
 from Subsystems.pid import PID
-import hal
+import wpilib
+import ctre
 
 
 class Drive(Subsystem):
     def __init__(self, robot):
-        super().__init__()
+        super().__init__("Drive")
         self.robot = robot
 
         self.peakCurrentLimit = 25
@@ -51,7 +52,7 @@ class Drive(Subsystem):
         self.KtorqueMode = DoubleSolenoid.Value.kReverse
         self.KspeedMode = DoubleSolenoid.Value.kForward
 
-        if hal.isSimulation():
+        if wpilib.RobotBase.isSimulation():
             self.kp = 0.001
             self.ki = 0.00001
             self.kd = 0.000000001
@@ -91,8 +92,8 @@ class Drive(Subsystem):
     Set Functions
     """
     def set(self, rgt, lft):
-        self.Dmotor['RFDrive'].set(self.Dmotor['RFDrive'].ControlMode.PercentOutput, rgt)
-        self.Dmotor['LFDrive'].set(self.Dmotor['LFDrive'].ControlMode.PercentOutput, lft)
+        self.Dmotor['RFDrive'].set(ctre.ControlMode.PercentOutput, rgt)
+        self.Dmotor['LFDrive'].set(ctre.ControlMode.PercentOutput, lft)
 
         # uncomment when all motors are master
         """self.Dmotor['RMDrive'].set(self.Dmotor['RMDrive'].ControlMode.PercentOutput, rgt)

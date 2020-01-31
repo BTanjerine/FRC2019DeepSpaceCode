@@ -4,7 +4,7 @@ from networktables import NetworkTables
 
 class Limelight(Subsystem):
     def __init__(self, robot):
-        super().__init__()
+        super().__init__("Limelight")
         self.robot = robot
 
         self.limelight = NetworkTables.getTable('limelight')
