@@ -95,6 +95,8 @@ class MotorMap:
         """
         self.PWMmotor['roller'] = {'port': 8, 'inverted': True, 'ContType': 'PWM', 'Type': 'VictorSP'}
         self.PWMmotor['pivot'] = {'port': 9, 'inverted': False, 'ContType': 'PWM', 'Type': 'VictorSP'}
+        self.PWMmotor['pivot2'] = {'port': 7, 'inverted': False, 'ContType': 'PWM', 'Type': 'VictorSP'}
+
 
 
 class PneumaticMap:

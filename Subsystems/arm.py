@@ -64,8 +64,7 @@ class Arm(Subsystem):
         self.motors['LTArm'].set(ctre.ControlMode.PercentOutput, power)
 
     def stop(self):
-        self.motors['RTArm'].stopMotor()
-        self.motors['LTArm'].stopMotor()
+        self.set(0)
 
     def resetHeight(self):
         self.AEnc.reset()

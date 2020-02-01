@@ -3,7 +3,8 @@ from Command import (
     setarmpos,
     sethatchpuncherpos,
     sethatchpusherpos,
-    align
+    align,
+    zeroArm
 )
 
 
@@ -26,11 +27,15 @@ class oi(object):
         self.SideCon = SideCon
 
         # button commands
+        self.Zero = JoystickButton(self.getSideController(), 7)
+        self.mid = JoystickButton(self.getSideController(), 5)
         self.alignBtn = JoystickButton(self.getMainController(), 1)
-        self.armUp = JoystickButton(self.getMainController(), 2)
+        # self.armUp = JoystickButton(self.getMainController(), 2)
 
         self.alignBtn.whenPressed(align.Align(self.robot, 0.8))
-        self.armUp.whenPressed(setarmpos.SetArmPos(self.robot, 0.5, 6000))
+        # self.armUp.whenPressed(setarmpos.SetArmPos(self.robot, 0.5, 6000))
+        self.mid.whenPressed(setarmpos.SetArmPos(self.robot, 0.5, 33000))
+        self.Zero.whenPressed(zeroArm.ZeroArm(self.robot))
 
     def getMainController(self):
         return self.MainCon['xbox']

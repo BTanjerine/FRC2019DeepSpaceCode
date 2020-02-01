@@ -1,4 +1,6 @@
 from wpilib.command import Subsystem
+from wpilib import SmartDashboard
+from wpilib import Encoder
 
 
 class Intake(Subsystem):
@@ -24,6 +26,8 @@ class Intake(Subsystem):
         self.motor = motor
         self.pistons = pistons
 
+        self.AngleEnc = Encoder(7, 8, False, Encoder.EncodingType.k4X)
+
         # set motor configs
         for name in self.motor:
             self.motor[name].setInverted(self.map.motorMap.PWMmotor[name]['inverted'])
@@ -36,9 +40,21 @@ class Intake(Subsystem):
 
     def setIntakeDeploy(self, power):
         self.motor['pivot'].set(power)
+        self.motor['pivot2'].set(power)
 
     def setHatchPuncher(self, pos):
         self.pistons['CntPuncher'].set(pos)
 
     def setHatchPusher(self, pos):
         self.pistons['HatchPusher'].set(pos)
+
+    def getSwivelEnc(self):
+        return self.AngleEnc.get()
+
+    def resetEnc(self):
+        self.AngleEnc.reset()
+
+    def log(self):
+        # 650 lower
+        # 0 up
+        SmartDashboard.putNumber('Angle of Intake', self.getSwivelEnc())

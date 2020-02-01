@@ -27,7 +27,7 @@ class Robot(CommandBasedRobot):
     TestVar = 0
 
     def robotInit(self):
-        super().__init__()
+        Robot.__init__(self)
         # init robot subs and commands
         self.RobotMap = RobotMap(self)  # map of the robot body
         self.Creator = Creator()    # program to create robot parts for subs
@@ -60,6 +60,7 @@ class Robot(CommandBasedRobot):
     def log(self):
         self.drive.Log()    # log drive data
         self.arm.log()      # log arm data
+        self.intake.log()
 
     def autonomousInit(self):
         # choose auto program

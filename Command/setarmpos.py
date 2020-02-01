@@ -18,12 +18,13 @@ class SetArmPos(Command):
         Running = 2
 
     def initialize(self):
-        self.robot.arm.resetHeight()
+        # self.robot.arm.resetHeight()
+        pass
 
     def execute(self):
         # arm in zeroing mode resets encoder when arm is in bottom pos
         if self.mode == 1:
-            self.robot.arm.set(-0.1)
+            self.robot.arm.set(-0.3)
             if not self.robot.arm.getZeroPos():
                 self.robot.arm.resetHeight()
                 self.robot.arm.stop()
